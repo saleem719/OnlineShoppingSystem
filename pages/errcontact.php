@@ -1,0 +1,1 @@
+<h2> Email cannot be sent from the local server</h2>
