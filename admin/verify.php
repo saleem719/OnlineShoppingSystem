@@ -9,8 +9,7 @@ if(isset($_POST['btnLogin']))
 	
 	if($chk==true)
 	{
-		$admin = find_admin($li,$pas);
-		$_SESSION['admin'] =  $admin[0]['admin_loginid'];
+		$_SESSION['admin'] = $_POST['txtLoginId'];
 
 		echo "<script>window.location='index.php?alink=adminpanel.php'</script>";
 		

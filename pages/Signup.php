@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
 <title>Untitled Document</title>
+
 <script type="text/javascript">
 
  var divs = new Array();
@@ -268,20 +268,17 @@ if(isset($_POST['btnSignUp']))
 	$mob   =   $_POST['txtMobile'];
 	$pass  =   $_POST['txtPass'];
 	$adr   =   $_POST['txtAddress'];
-
 	$check = check_user($lid,$pass);
-	
     if($check == false)
 	{	
-	$M = add_user($fname,$sname,$email,$lid,$mob,$pass,$adr);
-	header('location:index.php?mlink=signup.php&Mess='.$M);
+	   add_user($fname,$sname,$email,$lid,$mob,$pass,$adr);
+	echo"<script>window.location='index.php?mlink=signup.php&Mess=User Registered successfully' </script>";
 	}
 	else
 	{
 	    $M ='User Already Exists';
-		header('location:index.php?mlink=signup.php&Mess='.$M);
-	}
-	
+		echo"<script>window.location='index.php?mlink=signup.php&Mess=Failed to register' </script>";
+	}	
 }
 if(isset($_GET['Mess']))
 {

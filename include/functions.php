@@ -393,29 +393,26 @@ function delete_customer($custid)
 
 
 
-function check_admin($li,$pas)
+function check_admin($loId,$Passwrd)
 {
-	$query = "SELECT * FROM admin WHERE admin_loginid ='$li' and admin_pass ='$pas'";
+	$query = "SELECT * FROM admin WHERE admin_loginid ='$loId' and admin_pass ='$Passwrd'";
 
-	$rs = run_query($query);
-
-	print_r($rs);
-
-	if($data = mysqli_num_rows($rs))
+	$rs = run_query_only($query);
+	if(mysqli_num_rows($rs)==0)
 	{
-		$ans = $data[0]['admin_loginid'];
+		$ans = false;
 		}
 		else
 		{
-			$ans = false;
-			
+			$ans = true;
 			}
-	 return $ans;
+			
+	return $ans;
 	}
 
 	function find_admin($lid,$pas)
 {
-	$query = "SELECT * FROM admin WHERE admin_loginid ='$li' and admin_pass ='$pas'";
+	$query = "SELECT * FROM admin WHERE admin_loginid ='$lid' and admin_pass ='$pas'";
 	
 	$record = run_query($query);
 	
